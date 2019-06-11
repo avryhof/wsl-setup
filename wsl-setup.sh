@@ -30,7 +30,9 @@ if ! [[ -d "${HOMEDIR}/.ssh" ]]; then
 	if ! [[ -d "${USERPROFILE}/.ssh" ]]; then
 	    mkdir ${USERPROFILE}/.ssh
 	fi
-	ln -s ${USERPROFILE}/.ssh ${HOMEDIR}/.ssh
+	if ! [[ -d "${HOMEDIR}/.ssh" ]]; then
+	    ln -s ${USERPROFILE}/.ssh ${HOMEDIR}/.ssh
+	fi
 fi
 
 windows_folders='Videos Pictures Downloads Desktop Documents OneDrive workspace '
