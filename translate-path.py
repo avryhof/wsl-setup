@@ -31,6 +31,8 @@ parser.add_argument(
     nargs="?",
 )
 
+default_windows = False
+default_unix = False
 
 args = parser.parse_args()
 
@@ -47,8 +49,12 @@ elif args.cygwin:
     path = args.cygwin
 
 else:
-    default_unix = True
     path = args.path
+    if '\\' in path:
+        default_unix = True
+    elif '/' in path:
+        default_windows = True
+
 
 if "\\" not in path and "/" not in path:
     sys.stdout.write("No path separator found in argument. (you might need to put quotes around it)")
@@ -60,7 +66,7 @@ drive_letter = None
 
 path_parts = re.split(r'/|\\', path)
 
-if args.winpath or args.winslash:
+if args.winpath or args.winslash or default_windows:
     if '~' in path:
         path_parts = ['C:', 'Users', username] + path_parts[1:]
 
@@ -90,7 +96,7 @@ elif args.unix or args.cygwin or default_unix:
             path_parts.remove(path_parts[0])
             path_parts[0] = path_parts[0].upper()
 
-if args.winpath:
+if args.winpath or default_windows:
     if drive_letter not in path_parts:
         sys.stdout.write("%s\\%s" % (drive_letter, "\\".join(path_parts)))
     else:
