@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+sudo apt-get install python -y
+
+chmod +x translate-path.py
+
 HOMEDIR=/home/${USER}
 BASH_RC=${HOMEDIR}/.bashrc
 
