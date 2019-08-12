@@ -1,0 +1,3 @@
+echo Installing Chocolatey Package Manager
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+choco install -y 7zip bitwarden chocolateygui filezilla googlechrome chromium ublockorigin-chrome firefox ublockorigin-firefox git git-credential-manager-for-windows github-desktop keepassxc libreoffice python python2 python-pip jetbrainstoolbox vcxsrv wsltty wsl lxrunoffline runinbash

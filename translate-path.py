@@ -90,7 +90,7 @@ elif args.unix or args.cygwin or default_unix:
         drive_letter = None
 
     if drive_letter:
-        path_parts = ['mnt', drive_letter] + path_parts[1:]
+        path_parts = ['mnt', drive_letter.lower()] + path_parts[1:]
 
         if args.cygwin:
             path_parts.remove(path_parts[0])

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 #cmd.exe /c "@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin""
 sudo apt-get update && sudo apt-get install python python-pip synaptic apt-xapian-index -y && sudo update-apt-xapian-index -vf
+export os=ubuntu
+export dist=bionic
 curl -s https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.deb.sh | sudo bash
 
 chmod +x translate-path.py
