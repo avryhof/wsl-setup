@@ -86,7 +86,9 @@ mkvirtualenv () { virtualenv -p ${PYTHON2_PATH} ${WORKON_HOME}/$1;}
 mkvirtualenv2 () { virtualenv -p ${PYTHON2_PATH} ${WORKON_HOME}/$1;}
 mkvirtualenv3 () { virtualenv -p ${PYTHON3_PATH} ${WORKON_HOME}/$1;}
 workon () { source ${WORKON_HOME}/$1/Scripts/activate;}
-mysql () { /C/Program\ Files/MariaDB\ 10.4/bin/mysql.exe $@; }
+activate-this () { source ${WORKON_HOME}/`cat .virtualenv`/Scripts/activate;}
+workon-this () { source ${WORKON_HOME}/`cat .virtualenv`/Scripts/activate;}
+mysql () { /C/Program\ Files/MariaDB\ 10.4/bin/mysql.exe $@;}
 
 cd ~
 echo "Welcome to bash!"
